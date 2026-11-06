@@ -23,9 +23,8 @@ def connect_database():      #connecting to database
     return connection
 
 def cursor(connection):     #creating a cursor 
-    cursor = connection.cursor()
+    return connection.cursor()
 
-    return cursor
 
 def execute_cursor(cursor,query,values = None):  #executing the cursor query with its values
     if values:
@@ -49,8 +48,8 @@ def connection_n_cursor():
 
 def everything(query,values):
     connection = connect_database()
-    cursor = cursor(connection)
-    execute_cursor(query,values)
+    cur = cursor(connection)
+    execute_cursor(cur,query,values)
     commit(connection)
-    close_cursor(cursor)
+    close_cursor(cur)
     close_connection(connection)

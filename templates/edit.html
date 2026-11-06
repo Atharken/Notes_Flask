@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;        /* user can drag taller, but not wider */
+    field-sizing: content;   /* auto-grows as you type (modern browsers) */
+  }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>edit your notes</h1>
+    <div>
+        <form action = "/edit/{{id}}" method = "POST">
+                <div>
+
+            <input name = "title" type = "text" placeholder="TITLE" value="{{result[0][1]}}" required>
+        </div>
+        <div>
+            <textarea id = "msg" name = "content" rows = "4" placeholder="note anything you want" required>
+                {{result[0][2]}}
+            </textarea>
+        </div>
+        <div>
+            <button type = "submit">submit</button>
+        </div>
+        </form>
+
+        </form>
+    </div>
+        <script>
+// Fallback for browsers that don't support field-sizing
+const ta = document.getElementById('msg');
+if (!CSS.supports('field-sizing', 'content')) {
+  ta.style.resize = 'none';
+  ta.style.overflow = 'hidden';
+  ta.addEventListener('input', () => {
+    ta.style.height = 'auto';
+    ta.style.height = ta.scrollHeight + 'px';
+  });
+}
+</script>
+</body>
+</html>

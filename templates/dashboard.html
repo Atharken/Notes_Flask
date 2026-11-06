@@ -7,5 +7,22 @@
 </head>
 <body>
     <h1>yooo!!</h1>
+    <a href = "/add">add</a>  
+    {% for i in result %}
+    <div> 
+
+        <h2>{{i[1]}}</h2>
+        <p>{{i[2]}}</p>
+        <form action = "{{url_for('remove', id = i[0])}}" method = "post">
+            <button type = "submit">remove</button>
+        </form>
+         <form action = "{{url_for('edit', id = i[0])}}" method = "get">
+            <button type = "submit">edit</button>
+        </form>
+        {% endfor %}
+    </div>
+        
+
+
 </body>
 </html>

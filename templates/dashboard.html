@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <h1>yooo!!</h1>
-    <a href = "/add">add</a>  
+    <h1>NOTES DASHBOARD</h1>
+    <button ><a href = "/add" class = "btn">+ Notes</a></button>  
+   
+    <div class = "notes-container"> 
     {% for i in result %}
-    <div> 
 
-        <h2>{{i[1]}}</h2>
-        <p>{{i[2]}}</p>
-        <form action = "{{url_for('remove', id = i[0])}}" method = "post">
-            <button type = "submit">remove</button>
-        </form>
-         <form action = "{{url_for('edit', id = i[0])}}" method = "get">
-            <button type = "submit">edit</button>
-        </form>
+    <div class = "note-card">
+        <div class = "note-label">
+
+            
+            
+            <h2>{{i[1]}}</h2>
+            <p>{{i[2]}}</p>
+            <form action = "{{url_for('remove', id = i[0])}}" method = "post">
+                <button type = "submit">remove</button>
+            </form>
+            <form action = "{{url_for('edit', id = i[0])}}" method = "get">
+                <button type = "submit">edit</button>
+            </form>
+        </div>
+        </div>
         {% endfor %}
+</div>
+    <div>
+        <button><a href = "/about">About</a></button>
     </div>
         
 

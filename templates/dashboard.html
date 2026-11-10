@@ -7,35 +7,91 @@
       href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>NOTES DASHBOARD</h1>
-    <button ><a href = "/add" class = "btn">+ Notes</a></button>  
-   
-    <div class = "notes-container"> 
-    {% for i in result %}
 
-    <div class = "note-card">
-        <div class = "note-label">
+    <main class="dashboard">
 
-            
-            
-            <h2>{{i[1]}}</h2>
-            <p>{{i[2]}}</p>
-            <form action = "{{url_for('remove', id = i[0])}}" method = "post">
-                <button type = "submit">remove</button>
-            </form>
-            <form action = "{{url_for('edit', id = i[0])}}" method = "get">
-                <button type = "submit">edit</button>
-            </form>
-        </div>
-        </div>
-        {% endfor %}
-</div>
-    <div>
-        <button><a href = "/about">About</a></button>
-    </div>
-        
+        <!-- Header -->
+        <header class="page-header">
+            <div>
+                <div class="system-label">// PERSONAL KNOWLEDGE DATABASE</div>
+                <h1>NOTES_ARCHIVE<span class="cursor">_</span></h1>
+                <p class="subtitle">Your thoughts. Your memories. Your archive.</p>
+            </div>
 
+            <a href="{{ url_for('add') }}" class="btn">
+                + NEW NOTE
+            </a>
+        </header>
+
+        <!-- Notes Section -->
+        <section class="archive-section">
+
+            <div class="section-heading">
+                <h2>// STORED ENTRIES</h2>
+                <span>DATABASE :: {{ result|length }} NOTES</span>
+            </div>
+
+            <div class="notes-container">
+
+                {% for i in result %}
+
+                <article class="note-card">
+
+                    <div class="note-label">
+                        ENTRY_{{ i[0] }} // ARCHIVE
+                    </div>
+
+                    <h3>{{ i[1] }}</h3>
+
+                    <div class="note-divider"></div>
+
+                    <p class="note-content">{{ i[2] }}</p>
+
+                    <div class="note-actions">
+
+                        <form action="{{ url_for('edit', id=i[0]) }}" method="get">
+                            <button type="submit" class="btn">
+                                [ EDIT ]
+                            </button>
+                        </form>
+
+                        <form action="{{ url_for('remove', id=i[0]) }}" method="post">
+                            <button type="submit" class="btn btn-delete">
+                                [ DELETE ]
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+                {% else %}
+
+                <div class="empty-state">
+                    <h2>NO ENTRIES FOUND_</h2>
+                    <p>// Your archive is currently empty.</p>
+                    <a href="{{ url_for('add') }}" class="btn">
+                        CREATE FIRST NOTE
+                    </a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <span>NOTES.EXE // VERSION 1.0</span>
+            <a href="{{ url_for('about') }}">ABOUT_SYSTEM ↗</a>
+            <span>END_OF_ARCHIVE_</span>
+        </footer>
+
+    </main>
 
 </body>
+
 </html>

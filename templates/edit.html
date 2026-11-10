@@ -83,23 +83,7 @@
 
     </main>
 
-// Fallback for browsers that don't support field-sizing
 
-const ta = document.getElementById('msg');
-
-if (!CSS.supports('field-sizing', 'content')) {
-
-    ta.style.resize = 'none';
-    ta.style.overflow = 'hidden';
-
-    ta.addEventListener('input', () => {
-
-        ta.style.height = 'auto';
-        ta.style.height = ta.scrollHeight + 'px';
-
-    });
-
-}
 
 </body>
 </html>

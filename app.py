@@ -47,6 +47,11 @@ def edit(id):
 
     return render_template("edit.html",result = result,id = id)
 
+@app.route("/about")
+def about():
+
+    return render_template("about.html")
+
 
 
 

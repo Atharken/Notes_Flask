@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <section>
+        <h1>About Me</h1>
+        <p>
+            Hey! I'm Mohd Athar, a first-semester BCA student
+            passionate about technology, coding, robotics,
+            AI and machine learning.
+        </p>
+    </section>
+
+    <section>
+        <h2>My Interests</h2>
+        <p>
+            I enjoy exploring new technologies, building projects
+            and learning programming.
+        </p>
+    </section>
+
+    <section>
+        <h2>Find Me Online</h2>
+        <p>GitHub: Atharken</p>
+        <p>Instagram: athar_captures</p>
+    </section>
+</main>
+    
+ 
+    <button><a href = "{{ url_for('dashboard' )}}"">BACK</a></button>
+</body>
+</html>

@@ -1,50 +1,104 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <style>
-  textarea {
-    width: 100%;
-    min-height: 100px;
-    resize: vertical;        /* user can drag taller, but not wider */
-    field-sizing: content;   /* auto-grows as you type (modern browsers) */
-  }
-</style>
-    <link rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add_notes</title>
+
+    <title>THE WIRED // NEW ENTRY</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <form action = "/add" method="POST">
-        <div>
 
-            <input name = "title" type = "text" placeholder="TITLE" required>
-        </div>
-        <div>
-            <textarea id = "msg" name = "content" rows = "4" placeholder="note anything you want" required>
+    <main class="form-page">
 
-            </textarea>
+        <header class="form-header">
+            <div class="system-label">
+                // PERSONAL KNOWLEDGE DATABASE
+            </div>
+
+            <h1>CREATE_NEW_ENTRY<span class="cursor">_</span></h1>
+
+            <p>// Store a new thought in your archive.</p>
+        </header>
+
+        <div class="form-container">
+
+            <form action="{{ url_for('add') }}" method="POST">
+
+                <div class="form-group">
+
+                    <label for="title">ENTRY TITLE</label>
+
+                    <input
+                        class="form-input"
+                        id="title"
+                        name="title"
+                        type="text"
+                        placeholder="Enter note title..."
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="msg">ENTRY CONTENT</label>
+
+                    <textarea
+                        class="form-textarea"
+                        id="msg"
+                        name="content"
+                        placeholder="Write anything you want..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button class="btn" type="submit">
+                        [ SAVE ENTRY ]
+                    </button>
+
+                    <a href="{{ url_for('dashboard') }}"
+                       class="btn-secondary">
+                        [ BACK ]
+                    </a>
+
+                </div>
+
+            </form>
+
         </div>
-        <div>
-            <button type = "submit">submit</button>
+
+        <div class="form-footer">
+            NOTES.EXE // NEW RECORD // SYSTEM 01
         </div>
-    </form>
-    <div>
-    <button><a href = "{{ url_for('dashboard' )}}"">BACK</a></button>
-    </div>
-    <script>
+
+    </main>
+
 // Fallback for browsers that don't support field-sizing
+
 const ta = document.getElementById('msg');
+
 if (!CSS.supports('field-sizing', 'content')) {
-  ta.style.resize = 'none';
-  ta.style.overflow = 'hidden';
-  ta.addEventListener('input', () => {
-    ta.style.height = 'auto';
-    ta.style.height = ta.scrollHeight + 'px';
-  });
+
+    ta.style.resize = 'none';
+    ta.style.overflow = 'hidden';
+
+    ta.addEventListener('input', () => {
+
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+
+    });
+
 }
-</script>
 
 </body>
 </html>

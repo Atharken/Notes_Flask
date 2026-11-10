@@ -1,39 +1,156 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THE WIRED // ABOUT SYSTEM</title>
+
     <link rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <main>
-    <section>
-        <h1>About Me</h1>
-        <p>
-            Hey! I'm Mohd Athar, a first-semester BCA student
-            passionate about technology, coding, robotics,
-            AI and machine learning.
-        </p>
-    </section>
 
-    <section>
-        <h2>My Interests</h2>
-        <p>
-            I enjoy exploring new technologies, building projects
-            and learning programming.
-        </p>
-    </section>
+    <main class="about-page">
 
-    <section>
-        <h2>Find Me Online</h2>
-        <p>GitHub: Atharken</p>
-        <p>Instagram: athar_captures</p>
-    </section>
-</main>
-    
- 
-    <button><a href = "{{ url_for('dashboard' )}}"">BACK</a></button>
+        <!-- Page Header -->
+        <header class="about-header">
+
+            <div class="system-label">
+                // SYSTEM USER INFORMATION
+            </div>
+
+            <h1>ABOUT_SYSTEM<span class="cursor">_</span></h1>
+
+            <p>// Identity record successfully retrieved.</p>
+
+        </header>
+
+
+        <!-- Profile Section -->
+        <section class="about-card profile-card">
+
+            <div class="about-label">
+                USER_PROFILE // 001
+            </div>
+
+            <h2>MOHD ATHAR</h2>
+
+            <p class="profile-role">
+                BCA STUDENT // SEMESTER 01
+            </p>
+
+            <div class="about-divider"></div>
+
+            <p class="about-description">
+                Hey! I'm Mohd Athar, a first-semester BCA student
+                passionate about technology, coding, robotics,
+                Artificial Intelligence and Machine Learning.
+
+                I'm curious about how things work and enjoy
+                exploring new technologies, building projects
+                and improving my programming skills.
+
+                I believe in continuous learning, experimenting
+                with ideas and turning creativity into something
+                meaningful.
+            </p>
+
+        </section>
+
+
+        <!-- Interests Section -->
+        <section class="about-card">
+
+            <div class="about-label">
+                INTEREST_DATABASE // 002
+            </div>
+
+            <h2>AREAS OF INTEREST</h2>
+
+            <div class="about-divider"></div>
+
+            <div class="interest-list">
+
+                <div class="interest-item">
+                    <span>01 //</span>
+                    <p>Programming & Software Development</p>
+                </div>
+
+                <div class="interest-item">
+                    <span>02 //</span>
+                    <p>Artificial Intelligence</p>
+                </div>
+
+                <div class="interest-item">
+                    <span>03 //</span>
+                    <p>Machine Learning</p>
+                </div>
+
+                <div class="interest-item">
+                    <span>04 //</span>
+                    <p>Robotics & Automation</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Social Links -->
+        <section class="about-card">
+
+            <div class="about-label">
+                EXTERNAL_CONNECTIONS // 003
+            </div>
+
+            <h2>FIND ME ONLINE</h2>
+
+            <div class="about-divider"></div>
+
+            <div class="social-links">
+
+                <a href="https://github.com/Atharken"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-link">
+
+                    <span>GITHUB</span>
+                    <span>@Atharken ↗</span>
+
+                </a>
+
+                <a href="https://instagram.com/athar_captures"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-link">
+
+                    <span>INSTAGRAM</span>
+                    <span>@athar_captures ↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="about-footer">
+
+            <a href="{{ url_for('dashboard') }}"
+               class="btn-secondary">
+                [ BACK TO ARCHIVE ]
+            </a>
+
+            <span>CONNECTION TERMINATED_</span>
+
+        </footer>
+
+    </main>
+
 </body>
 </html>

@@ -1,7 +1,14 @@
-from  flask import Flask,render_template,redirect,url_for,request
+from  flask import Flask,render_template,redirect,url_for,request,session
 from database_services import create_note,remove_notes,update_notes,all_notes,note
+from dotenv import load_dotenv
+import os
+from werkzeug.security import generate_password_hash,check_password_hash
+
+load_dotenv()
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = os.getenv('secret_key')
 
 @app.route("/")
 def dashboard():

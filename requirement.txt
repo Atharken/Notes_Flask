@@ -1,7 +1,13 @@
 Flask
 
+sqlalchemy
+
 mysql-connector-python
 
 pathlib
 
 python-dotenv
+
+flask-login
+
+Werkzeug

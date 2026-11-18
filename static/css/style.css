@@ -694,3 +694,381 @@ body {
     }
 }
 
+/* ===== THE WIRED : AUTHENTICATION PAGES ===== */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 18px;
+}
+
+/* Main authentication panel */
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 38px;
+
+    background: rgba(8, 13, 14, 0.92);
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 0 25px rgba(139, 201, 154, 0.05),
+        inset 0 0 25px rgba(139, 201, 154, 0.015);
+
+    backdrop-filter: blur(8px);
+}
+
+/* Header */
+
+.auth-header {
+    margin-bottom: 35px;
+}
+
+.auth-label {
+    color: var(--green-dim);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.auth-header h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: normal;
+    color: var(--green);
+}
+
+.auth-header p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+/* Form */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.auth-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-group label {
+    color: var(--green-dim);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* Inputs */
+
+.auth-input {
+    width: 100%;
+    padding: 14px;
+
+    background: rgba(3, 7, 8, 0.85);
+    border: 1px solid rgba(139, 201, 154, 0.18);
+
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.auth-input::placeholder {
+    color: #59655e;
+}
+
+.auth-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 12px rgba(139, 201, 154, 0.12);
+}
+
+/* Submit button */
+
+.auth-button {
+    width: 100%;
+    padding: 14px;
+
+    margin-top: 8px;
+
+    background: rgba(139, 201, 154, 0.08);
+    border: 1px solid var(--green-dim);
+
+    color: var(--green);
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.auth-button:hover {
+    background: rgba(139, 201, 154, 0.17);
+    border-color: var(--green);
+    box-shadow: 0 0 15px rgba(139, 201, 154, 0.15);
+}
+
+/* Footer */
+
+.auth-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(139, 201, 154, 0.12);
+
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.auth-footer a {
+    color: var(--green);
+    margin-left: 5px;
+    transition: 0.2s ease;
+}
+
+.auth-footer a:hover {
+    color: #c0e8c9;
+    text-shadow: 0 0 8px rgba(139, 201, 154, 0.4);
+}
+
+/* System status */
+
+.auth-status {
+    margin-top: 25px;
+    color: var(--green-dim);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+.auth-status span {
+    color: var(--green);
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 27px 22px;
+    }
+
+    .auth-header h1 {
+        font-size: 25px;
+    }
+}
+/* ===== THE WIRED : DASHBOARD ENHANCEMENTS ===== */
+
+/* Dashboard atmosphere */
+
+.dashboard {
+    position: relative;
+}
+
+/* Connection status */
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+
+    box-shadow: 0 0 9px rgba(139, 201, 154, 0.8);
+
+    animation: signal 2s infinite;
+}
+
+@keyframes signal {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 9px rgba(139, 201, 154, 0.7);
+    }
+
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 3px rgba(139, 201, 154, 0.3);
+    }
+}
+
+/* Header actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* System information bar */
+
+.system-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.system-panel {
+    padding: 18px 20px;
+
+    background: rgba(10, 15, 16, 0.8);
+    border: 1px solid var(--border);
+
+    transition: 0.25s ease;
+}
+
+.system-panel:hover {
+    border-color: var(--green-dim);
+    background: rgba(18, 27, 25, 0.9);
+}
+
+.system-panel-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.system-panel-value {
+    color: var(--green);
+    font-size: 21px;
+    letter-spacing: 1px;
+}
+
+.system-panel-description {
+    color: var(--green-dim);
+    font-size: 10px;
+    margin-top: 8px;
+}
+
+/* Archive section */
+
+.archive-section {
+    margin-top: 20px;
+}
+
+.section-heading {
+    position: relative;
+}
+
+.section-heading h2 {
+    letter-spacing: 1px;
+}
+
+/* Note card enhancement */
+
+.note-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.note-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 2px;
+    height: 0;
+
+    background: var(--green);
+    transition: height 0.3s ease;
+}
+
+.note-card:hover::before {
+    height: 100%;
+}
+
+/* Entry metadata */
+
+.note-label {
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* Note actions */
+
+.note-actions button {
+    font-size: 11px;
+}
+
+.note-actions form {
+    flex: 1;
+}
+
+.note-actions button {
+    width: 100%;
+}
+
+/* Logout */
+
+.btn-logout {
+    color: #d47777;
+    border-color: rgba(169, 68, 68, 0.5);
+}
+
+.btn-logout:hover {
+    color: #f0aaaa;
+    border-color: #a94444;
+    background: rgba(169, 68, 68, 0.12);
+}
+
+/* Dashboard footer */
+
+.dashboard-footer {
+    align-items: center;
+}
+
+/* Subtle terminal divider */
+
+.archive-section::before {
+    content: "ARCHIVE_DIRECTORY // /USER/MEMORIES";
+    display: block;
+
+    color: var(--green-dim);
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .system-overview {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        text-align: center;
+    }
+}

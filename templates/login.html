@@ -3,20 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login | The Wired</title>
 </head>
+
 <body>
-    <form action = "login" method = 'POST'>
-        <label id = email>email</label>
-        <input name = "email" id = "email" type = "text" placeholder = "your@gmail.com" required>
-        <br>
-        <label id = pass>password</label>
-        <input name = "pass" id = "pass" type = "text" placeholder = password required>
-        <br>
-        <button type = "submit">submit</button>
-    </form>
 
-    <a href = "{{url_for('register')}}">have'nt register yet?</a>
+<div class="auth-page">
 
-    </body>
+    <div class="auth-container">
+
+        <div class="auth-header">
+            <div class="auth-label">PROTOCOL 01 // THE WIRED</div>
+            <h1>WELCOME BACK.</h1>
+            <p>Your connection has been waiting.<br>Enter your credentials to continue.</p>
+        </div>
+
+        <form action="{{ url_for('login') }}" method="POST" class="auth-form">
+
+            <div class="auth-group">
+                <label for="email">EMAIL ADDRESS</label>
+                <input
+                    class="auth-input"
+                    name="email"
+                    id="email"
+                    type="email"
+                    placeholder="your@gmail.com"
+                    required
+                >
+            </div>
+
+            <div class="auth-group">
+                <label for="pass">PASSWORD</label>
+                <input
+                    class="auth-input"
+                    name="pass"
+                    id="pass"
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
+
+            <button class="auth-button" type="submit">
+                CONNECT TO THE WIRED
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+            Not connected yet?
+            <a href="{{ url_for('register') }}">Create an account</a>
+        </div>
+
+        <div class="auth-status">
+            SYSTEM STATUS: <span>ONLINE</span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
 </html>

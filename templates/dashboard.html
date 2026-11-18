@@ -1,108 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
+
+    <title>NOTES_ARCHIVE | THE WIRED</title>
 </head>
 
 <body>
 
-    <main class="dashboard">
+<main class="dashboard">
 
-        <!-- Header -->
-        <header class="page-header">
-            <div>
-                <div class="system-label">// PERSONAL KNOWLEDGE DATABASE</div>
-                <h1>NOTES_ARCHIVE<span class="cursor">_</span></h1>
-                <p class="subtitle">Your thoughts. Your memories. Your archive.</p>
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+        <div>
+            <div class="system-label">
+                // WIRED NETWORK :: PERSONAL DATABASE
             </div>
+
+            <h1>
+                NOTES_ARCHIVE<span class="cursor">_</span>
+            </h1>
+
+            <p class="subtitle">
+                Your thoughts. Your memories. Your archive.
+            </p>
+        </div>
+
+        <div class="header-actions">
 
             <a href="{{ url_for('add') }}" class="btn">
-                + NEW NOTE
+                + NEW ENTRY
             </a>
-        </header>
 
-        <!-- Notes Section -->
-        <section class="archive-section">
+            <a href="{{ url_for('logout') }}"
+               class="btn btn-logout">
+                DISCONNECT
+            </a>
 
-            <div class="section-heading">
-                <h2>// STORED ENTRIES</h2>
-                <span>DATABASE :: {{ result|length }} NOTES</span>
+        </div>
+
+    </header>
+
+
+    <!-- CONNECTION STATUS -->
+
+    <div class="connection-status">
+        <span class="status-dot"></span>
+        CONNECTION ESTABLISHED // USER SESSION ACTIVE
+    </div>
+
+
+    <!-- SYSTEM OVERVIEW -->
+
+    <section class="system-overview">
+
+        <div class="system-panel">
+            <div class="system-panel-label">
+                DATABASE // ENTRIES
             </div>
 
-            <div class="notes-container">
+            <div class="system-panel-value">
+                {{ result|length }}
+            </div>
 
-                {% for i in result %}
+            <div class="system-panel-description">
+                TOTAL STORED MEMORIES
+            </div>
+        </div>
 
-                <article class="note-card">
 
-                    <div class="note-label">
-                        ENTRY_{{ i[0] }} // ARCHIVE [CREATED AT //{{ i[3] }}] {% if i[4] %} [{{ i[4] }}] {% endif %}
-                    </div>
+        <div class="system-panel">
+            <div class="system-panel-label">
+                NETWORK STATUS
+            </div>
 
-                    <h3>{{ i[1] }}</h3>
+            <div class="system-panel-value">
+                ONLINE
+            </div>
 
-                    <div class="note-divider"></div>
+            <div class="system-panel-description">
+                CONNECTION STABLE
+            </div>
+        </div>
 
-                    <p class="note-content">{{ i[2] }}</p>
 
-      
+        <div class="system-panel">
+            <div class="system-panel-label">
+                SYSTEM VERSION
+            </div>
 
-                    <div class="note-actions">
+            <div class="system-panel-value">
+                1.0.0
+            </div>
 
-                        <form action="{{ url_for('edit', id=i[0]) }}" method="get">
-                            <button type="submit" class="btn">
-                                [ EDIT ]
-                            </button>
-                        </form>
+            <div class="system-panel-description">
+                NOTES.EXE // RUNNING
+            </div>
+        </div>
 
-                        <form action="{{ url_for('remove', id=i[0]) }}" method="post">
-                            <button type="submit" class="btn btn-delete">
-                                [ DELETE ]
-                            </button>
-                        </form>
+    </section>
 
-                    </div>
 
-                </article>
+    <!-- NOTES ARCHIVE -->
 
-                {% else %}
+    <section class="archive-section">
 
-                <div class="empty-state">
-                    <h2>NO ENTRIES FOUND_</h2>
-                    <p>// Your archive is currently empty.</p>
-                    <a href="{{ url_for('add') }}" class="btn">
-                        CREATE FIRST NOTE
-                    </a>
+        <div class="section-heading">
+
+            <h2>// STORED ENTRIES</h2>
+
+            <span>
+                DATABASE :: {{ result|length }} NOTES
+            </span>
+
+        </div>
+
+
+        <div class="notes-container">
+
+            {% for i in result %}
+
+            <article class="note-card">
+
+                <div class="note-label">
+
+                    ENTRY_{{ i[0] }}
+
+                    // ARCHIVE
+
+                    [CREATED AT // {{ i[3] }}]
+
+                    {% if i[4] %}
+                        [{{ i[4] }}]
+                    {% endif %}
+
                 </div>
 
-                {% endfor %}
+
+                <h3>{{ i[1] }}</h3>
+
+
+                <div class="note-divider"></div>
+
+
+                <p class="note-content">{{ i[2] }}</p>
+
+
+                <!-- ACTIONS -->
+
+                <div class="note-actions">
+
+                    <form action="{{ url_for('edit', id=i[0]) }}"
+                          method="get">
+
+                        <button type="submit" class="btn">
+                            [ EDIT ]
+                        </button>
+
+                    </form>
+
+
+                    <form action="{{ url_for('remove', id=i[0]) }}"
+                          method="post">
+
+                        <button type="submit"
+                                class="btn btn-delete">
+
+                            [ DELETE ]
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+
+            {% else %}
+
+            <!-- EMPTY DATABASE -->
+
+            <div class="empty-state">
+
+                <h2>NO ENTRIES FOUND_</h2>
+
+                <p>
+                    // Your archive is currently empty.
+                    <br>
+                    // No memories have been stored yet.
+                </p>
+
+                <a href="{{ url_for('add') }}" class="btn">
+                    CREATE FIRST ENTRY
+                </a>
 
             </div>
 
-        </section>
+            {% endfor %}
 
-        <!-- Footer -->
-        <footer class="dashboard-footer">
-            <span>NOTES.EXE // VERSION 1.0</span>
-            <a href="{{ url_for('about') }}">ABOUT_SYSTEM ↗</a>
-            <span>END_OF_ARCHIVE_</span>
-        </footer>
+        </div>
 
-             <div class="empty-state">
+    </section>
 
 
-                    <a href="{{ url_for('logout') }}" class="btn">
-                        logout
-                    </a>
-                </div>
+    <!-- FOOTER -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            NOTES.EXE // VERSION 1.0
+        </span>
+
+        <a href="{{ url_for('about') }}">
+            ABOUT_SYSTEM ↗
+        </a>
+
+        <span>
+            END_OF_ARCHIVE_
+        </span>
+
+    </footer>
 
 
-    </main>
+</main>
 
 </body>
-
 </html>

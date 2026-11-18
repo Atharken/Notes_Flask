@@ -40,7 +40,7 @@
                 <article class="note-card">
 
                     <div class="note-label">
-                        ENTRY_{{ i[0] }} // ARCHIVE
+                        ENTRY_{{ i[0] }} // ARCHIVE [CREATED AT //{{ i[3] }}] {% if i[4] %} [{{ i[4] }}] {% endif %}
                     </div>
 
                     <h3>{{ i[1] }}</h3>
@@ -48,6 +48,8 @@
                     <div class="note-divider"></div>
 
                     <p class="note-content">{{ i[2] }}</p>
+
+      
 
                     <div class="note-actions">
 
@@ -89,6 +91,15 @@
             <a href="{{ url_for('about') }}">ABOUT_SYSTEM ↗</a>
             <span>END_OF_ARCHIVE_</span>
         </footer>
+
+             <div class="empty-state">
+
+
+                    <a href="{{ url_for('logout') }}" class="btn">
+                        logout
+                    </a>
+                </div>
+
 
     </main>
 

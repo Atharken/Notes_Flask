@@ -3,21 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Register | The Wired</title>
 </head>
+
 <body>
-    <form action = "register" method = 'POST'>
-        <label id = gmail>email</label>
-        <input name = "gmail" id = "gmail" type = "text" placeholder = "your@gmail.com" required>
-        <br>
-        <label id = pass>password</label>
-        <input name = "pass" id = "pass" type = "text" placeholder = password required>
-        <br>
-        <label id = username>username</label>
-        <input name = "username" id = "username" type = "text" placeholder = username required>
-        <br>
-        <button type = "submit">submit</button>
-    </form>
+
+<div class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-header">
+            <div class="auth-label">PROTOCOL 02 // THE WIRED</div>
+            <h1>JOIN THE WIRED.</h1>
+            <p>A new identity awaits.<br>Establish your connection.</p>
+        </div>
+
+        <form action="{{ url_for('register') }}" method="POST" class="auth-form">
+
+            <div class="auth-group">
+                <label for="username">USERNAME</label>
+                <input
+                    class="auth-input"
+                    name="username"
+                    id="username"
+                    type="text"
+                    placeholder="Choose a username"
+                    required
+                >
+            </div>
+
+            <div class="auth-group">
+                <label for="gmail">EMAIL ADDRESS</label>
+                <input
+                    class="auth-input"
+                    name="gmail"
+                    id="gmail"
+                    type="email"
+                    placeholder="your@gmail.com"
+                    required
+                >
+            </div>
+
+            <div class="auth-group">
+                <label for="pass">PASSWORD</label>
+                <input
+                    class="auth-input"
+                    name="pass"
+                    id="pass"
+                    type="password"
+                    placeholder="Create a password"
+                    required
+                >
+            </div>
+
+            <button class="auth-button" type="submit">
+                ESTABLISH CONNECTION
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+            Already connected?
+            <a href="{{ url_for('login') }}">Return to login</a>
+        </div>
+
+        <div class="auth-status">
+            NETWORK STATUS: <span>AWAITING NEW USER</span>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

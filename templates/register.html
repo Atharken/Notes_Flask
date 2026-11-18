@@ -7,16 +7,17 @@
 </head>
 <body>
     <form action = "register" method = 'POST'>
-        <label id = email>email</label>
-        <input name = "email" id = "email" type = "text" placeholder = "your@gmail.com" required>
+        <label id = gmail>email</label>
+        <input name = "gmail" id = "gmail" type = "text" placeholder = "your@gmail.com" required>
         <br>
         <label id = pass>password</label>
         <input name = "pass" id = "pass" type = "text" placeholder = password required>
         <br>
+        <label id = username>username</label>
+        <input name = "username" id = "username" type = "text" placeholder = username required>
+        <br>
         <button type = "submit">submit</button>
     </form>
-    {% if y %}
-        <p>{{ y }}</p>
-    {% endif %}
+
 </body>
 </html>

@@ -71,7 +71,11 @@
         <div class="auth-status">
             NETWORK STATUS: <span>AWAITING NEW USER</span>
         </div>
-
+        {% if error %}
+        <div class = "auth-footer">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
     </div>
 
 </div>

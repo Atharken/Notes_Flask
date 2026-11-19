@@ -72,6 +72,20 @@ def user_data(email):
     if not user_data: 
         return None
     return user_data
+
+    
+def name_user(user_id):
+
+    connection = connect_database()
+    cur = cursor(connection)
+    query = "SELECT username FROM users WHERE user_id = %s"
+    values = (user_id,)
+    execute_cursor(cur,query,values)
+    user_name = cur.fetchone()
+    close_cursor(cur)
+    close_connection(connection)
+    return user_name
+    
     
 
     

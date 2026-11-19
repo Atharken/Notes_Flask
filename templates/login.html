@@ -60,6 +60,14 @@
             SYSTEM STATUS: <span>ONLINE</span>
         </div>
 
+        {% if error %}
+
+        <div class="auth-status">
+            {{ error }}
+        </div>
+        {% endif %}
+
+
     </div>
 
 </div>

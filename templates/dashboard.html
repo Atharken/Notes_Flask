@@ -97,7 +97,7 @@
             </div>
 
             <div class="system-panel-value">
-                1.0.0
+                1.5.0
             </div>
 
             <div class="system-panel-description">
@@ -114,7 +114,7 @@
 
         <div class="section-heading">
 
-            <h2>// STORED ENTRIES</h2>
+            <h2>// STORED ENTRIES OF {{ x[0].upper() }} </h2>
 
             <span>
                 DATABASE :: {{ result|length }} NOTES
@@ -138,7 +138,7 @@
                     [CREATED AT // {{ i[3] }}]
 
                     {% if i[4] %}
-                        [{{ i[4] }}]
+                      [EDITED AT  //[{{ i[4] }}]\\]
                     {% endif %}
 
                 </div>

@@ -1,5 +1,5 @@
 from  flask import Flask,render_template,redirect,url_for,request,session
-from database_services import create_note,remove_notes,update_notes,all_notes,note,user_data,create_user
+from database_services import create_note,remove_notes,update_notes,all_notes,note,user_data,create_user,name_user
 from dotenv import load_dotenv
 import os
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -15,15 +15,19 @@ app.config['SECRET_KEY'] = os.getenv('secret_key')
 def dashboard():
     if "user_id" not in session:
         return redirect(url_for("login"))
-    
+
+    name = name_user(session["user_id"])
+    x = list(name)
 
     
     notes_data = all_notes(session["user_id"]) #pass session user_id here 
     result = [list(i) for i in notes_data]
 
+    
 
 
-    return render_template("dashboard.html",result = result)
+
+    return render_template("dashboard.html",result = result,x = x)
 
 @app.route("/add", methods = ["GET","POST"])            #add notes
 def add():
